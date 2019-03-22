@@ -18,7 +18,8 @@ object ServerStream {
   def stream[F[_]: Effect](implicit ec: ExecutionContext) =
     for {
       client <- Http1Client.stream[F]()
-      service = new HelloWorldService[F](client)
+      spaceXClient = new SpaceXClient[F](client)
+      service = new HelloWorldService[F](spaceXClient)
       exitCode <- BlazeBuilder[F]
           .bindHttp(8080, "0.0.0.0")
           .mountService(service.service, "/")

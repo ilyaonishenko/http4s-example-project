@@ -10,7 +10,8 @@ case class LaunchInfo(flight_number: Int, mission_name: String, mission_id: List
 
 case class Rocket(rocket_id: String, rocket_name: String, rocket_type: String)
 
-case class Links(mission_patch: String, mission_patch_small: String, reddit_launch: String, reddit_media: String, presskit: String, article_link: String, wikipedia: String,
+case class Links(mission_patch: String, mission_patch_small: String, reddit_launch: String, reddit_media: String,
+                 presskit: String, article_link: String, wikipedia: String,
                  video_link: String, youtube_id: String, flickr_images: List[String])
 
 
@@ -21,4 +22,8 @@ object LaunchInfo {
   implicit val rocketEncoder: Encoder[Rocket] = deriveEncoder
   implicit val linksDecoder: Decoder[Links] = deriveDecoder
   implicit val linksEncoder: Encoder[Links] = deriveEncoder
+}
+
+object Links {
+  def empty(): Links = Links("", "", "", "", "", "", "", "", "", List.empty)
 }

@@ -3,6 +3,7 @@ val Specs2Version = "4.1.0"
 val LogbackVersion = "1.2.3"
 val ConfigVersion = "1.3.2"
 val CirceVersion = "0.9.1"
+val RandomDataGeneratorVersion = "2.6"
 
 lazy val root = (project in file("."))
   .settings(
@@ -18,7 +19,8 @@ lazy val root = (project in file("."))
       "io.circe"        %% "circe-generic-extras"% CirceVersion,
       "org.specs2"     %% "specs2-core"          % Specs2Version % "test",
       "com.typesafe"    % "config"               % ConfigVersion,
-      "ch.qos.logback"  %  "logback-classic"     % LogbackVersion
+      "ch.qos.logback"  %  "logback-classic"     % LogbackVersion,
+      "com.danielasfregola" %% "random-data-generator" % RandomDataGeneratorVersion,
     ),
     addCompilerPlugin("org.spire-math" %% "kind-projector"     % "0.9.6"),
     addCompilerPlugin("com.olegpy"     %% "better-monadic-for" % "0.2.4")
